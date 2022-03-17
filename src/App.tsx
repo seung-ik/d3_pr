@@ -1,45 +1,37 @@
-import React, { useRef } from 'react';
-import * as d3 from 'd3';
+import React from 'react';
 import styled from 'styled-components';
+import { Link, Route, Switch } from 'react-router-dom';
+import Paint from './components/Paint';
 
 const Wrapper = styled('div')`
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 80vh;
   padding: 2rem;
   border: 1px solid green;
   box-sizing: border-box;
 `;
 
+const Buttons = styled('div')`
+  display: flex;
+`;
+
 function App() {
-  const svgRef = useRef(null);
-  const width = 600;
-  const height = 500;
-  const margin = {
-    top: 20, right: 30, bottom: 30, left: 40
-  }
-
-  React.useEffect(() => {
-    const svgElement = d3.select(svgRef.current);
-    svgElement.append('circle').attr('cx', 0).attr('cy', 0).attr('r', 50);
-  }, []);
-
   return (
-    <Wrapper
-      className="App"
-      style={{ display: 'flex', width: '100%', height: '80vh', padding: '2rem', border: '1px solid green' }}
-    >
-      <svg
-        ref={svgRef}
-        style={{
-          border: '2px solid gold',
-        }}
-      />
-      <svg
-        style={{
-          border: '2px solid gold',
-        }}
-      />
+    <Wrapper>
+      <Buttons>
+        <Link to="/">
+          <button>home</button>
+        </Link>
+        <Link to="paint">
+          <button>paint</button>
+        </Link>
+      </Buttons>
+      <main>
+        <Switch>
+          <Route exact path="/paint" component={Paint} />
+        </Switch>
+      </main>
     </Wrapper>
   );
 }
