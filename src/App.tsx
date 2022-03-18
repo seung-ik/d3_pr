@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, Route, Switch } from 'react-router-dom';
 import Paint from './components/Paint';
+import LineChart from './components/LineChart';
+import { lineData } from './mock/lineData';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -26,10 +28,16 @@ function App() {
         <Link to="paint">
           <button>paint</button>
         </Link>
+        <Link to="lineChart">
+          <button>lineChart</button>
+        </Link>
       </Buttons>
       <main>
         <Switch>
           <Route exact path="/paint" component={Paint} />
+          <Route exact path="/lineChart">
+            <LineChart height={400} values={lineData} />
+          </Route>
         </Switch>
       </main>
     </Wrapper>
