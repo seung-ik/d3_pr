@@ -23,7 +23,7 @@ function App() {
     <Wrapper>
       <Buttons>
         <Link to="/">
-          <button>home</button>
+          <button>dev</button>
         </Link>
         <Link to="paint">
           <button>paint</button>
