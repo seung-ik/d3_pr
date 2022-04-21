@@ -26,4 +26,4 @@ jobs:
         run:
           aws --endpoint-url=https://kr.object.ncloudstorage.com
           s3 cp --recursive ./build
-          s3://testbk123-dev
+          s3://d3pr123
