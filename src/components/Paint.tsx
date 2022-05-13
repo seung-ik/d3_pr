@@ -12,13 +12,9 @@ const Wrapper = styled('div')`
 `;
 
 const Paint = () => {
-  const x = d3.scaleLinear()
-    .domain([0, 100])
-    .range([0, 300]);
+  const x = d3.scaleLinear().domain([0, 100]).range([0, 300]);
 
-  const y = d3.scaleLinear()
-    .domain([0, 100])
-    .range([160, 0]);
+  const y = d3.scaleLinear().domain([0, 100]).range([160, 0]);
 
   const circleRef = useRef(null);
   const strokeRef = useRef(null);
@@ -41,7 +37,6 @@ const Paint = () => {
     const addScale = () => {
       const svg = d3.select(scaleRef.current);
       svg.append('circle').attr('cx', x(50)).attr('cy', y(20)).attr('r', 30).style('fill', 'orange');
-
     };
 
     const addAxis = () => {
@@ -49,9 +44,9 @@ const Paint = () => {
       const axisX = d3.axisBottom(x);
       const axisY = d3.axisLeft(y);
 
-      svg.append('g').attr("transform", "translate(30,180)").call(axisX);
-      svg.append('g').attr("transform", "translate(30, 20)").call(axisY);
-    }
+      svg.append('g').attr('transform', 'translate(30,180)').call(axisX);
+      svg.append('g').attr('transform', 'translate(30, 20)').call(axisY);
+    };
 
     addCircle();
     addStroke();
