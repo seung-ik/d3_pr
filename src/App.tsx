@@ -4,6 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Paint from './components/Paint';
 import LineChart from './components/LineChart';
 import { lineData } from './mock/lineData';
+import Calendar from './components/Calendar';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -31,10 +32,14 @@ function App() {
         <Link to="lineChart">
           <button>lineChart</button>
         </Link>
+        <Link to="calendar">
+          <button>calendar</button>
+        </Link>
       </Buttons>
       <main>
         <Switch>
           <Route exact path="/paint" component={Paint} />
+          <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/lineChart">
             <LineChart height={400} values={lineData} />
           </Route>
