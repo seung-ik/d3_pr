@@ -5,6 +5,7 @@ import Paint from './components/Paint';
 import LineChart from './components/LineChart';
 import { lineData } from './mock/lineData';
 import Calendar from './components/Calendar';
+import Editor from './components/EditorPage';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -35,10 +36,14 @@ function App() {
         <Link to="calendar">
           <button>calendar</button>
         </Link>
+        <Link to="editor">
+          <button>editor</button>
+        </Link>
       </Buttons>
       <main>
         <Switch>
           <Route exact path="/paint" component={Paint} />
+          <Route exact path="/editor" component={Editor} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/lineChart">
             <LineChart height={400} values={lineData} />
