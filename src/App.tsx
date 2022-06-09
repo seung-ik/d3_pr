@@ -6,6 +6,7 @@ import LineChart from './components/LineChart';
 import { lineData } from './mock/lineData';
 import Calendar from './components/Calendar';
 import Editor from './components/EditorPage';
+import TuiEditor from './components/TuiEditor';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -37,13 +38,17 @@ function App() {
           <button>calendar</button>
         </Link>
         <Link to="editor">
-          <button>editor</button>
+          <button>draft-editor</button>
+        </Link>
+        <Link to="tui-editor">
+          <button>tui-editor</button>
         </Link>
       </Buttons>
       <main>
         <Switch>
           <Route exact path="/paint" component={Paint} />
           <Route exact path="/editor" component={Editor} />
+          <Route exact path="/tui-editor" component={TuiEditor} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/lineChart">
             <LineChart height={400} values={lineData} />
